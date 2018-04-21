@@ -1,15 +1,15 @@
-#Poet's Dashboard Application
+# Poet's Dashboard Application
 
 > This is a Ruby On Rails 5 application that is designed for blogs and Portfolio management
 
-###Features
+### Features
 
 - Real Time chat engine for comments
 - Blog
 - Portfolio
 - Drag And Drop Interface
 
-###Code Example
+### Code Example
 
 ```Ruby
 def under_construction
