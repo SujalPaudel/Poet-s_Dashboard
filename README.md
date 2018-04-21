@@ -1,24 +1,22 @@
 #Poet's Dashboard Application
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+> This is a Ruby On Rails 5 application that is designed for blogs and Portfolio management
 
-Things you may want to cover:
+###Features
 
-* Ruby version
+- Real Time chat engine for comments
+- Blog
+- Portfolio
+- Drag And Drop Interface
 
-* System dependencies
+###Code Example
 
-* Configuration
+```Ruby
+def under_construction
+  put "Will be launched very soon"
+end
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```javascript
+alert('Will be launced very soon');
+```
