@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   #the method in rails is called as actions
   # GET /blogs
   # GET /blogs.json
@@ -55,6 +55,17 @@ class BlogsController < ApplicationController
       format.html { redirect_to blogs_url, notice: 'Blog was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+  def toggle_status
+    if @blog.draft?
+      @blog.published!
+    elsif @blog.published?
+      @blog.draft!
+    end
+      
+
+    #byebug(dont put this permanently, it will stop the sys from running) #using the gem of byebug
+    redirect_to blogs_url
   end
 
   private
