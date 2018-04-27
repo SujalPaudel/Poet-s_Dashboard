@@ -3,6 +3,15 @@ class PortfoliosController < ApplicationController
   def index
     @portfolio_items = Portfolio.all
   end
+
+  def angular
+    @portfolio_item_angular = Portfolio.angular
+  end
+
+  def rails
+    @portfolio_item_rails = Portfolio.rails
+  end
+
   def new 
     @portfolio_item = Portfolio.new
   end

@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   #provide the same routes but change in the show
   resources :portfolios, except:[:show]
+
+  get 'angular-items', to: 'portfolios#angular' 
+
+  get 'rails-items', to: 'portfolios#rails'
   
   get 'portfolio/:id', to: 'portfolios#show', as:'portfolio_show'
 
