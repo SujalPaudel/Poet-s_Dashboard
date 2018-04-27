@@ -10,6 +10,21 @@ class Portfolio < ApplicationRecord
     where(subtitle: 'Ruby On Rails')
   end
 
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.main_image ||= "http://via.placeholder.com/600x400"
+    self.thumb_image ||= "http://via.placeholder.com/350x200"
+
+  end
 
 
 end
+
+
+
+#This is the Model, The M of MVC model in ruby on the rails
+
+#||= ??
+#if self.main_image == nil
+#  self.main_image = "http://via.placeholder.com/600x400"
