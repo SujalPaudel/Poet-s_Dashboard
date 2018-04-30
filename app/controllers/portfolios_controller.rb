@@ -6,17 +6,13 @@ class PortfoliosController < ApplicationController
 
   def angular
     @portfolio_item_angular = Portfolio.angular
-  end
-
-  def rails
-    @portfolio_item_rails = Portfolio.rails
-  end
-
+  end 
   def new 
     @portfolio_item = Portfolio.new
+    3.times { @portfolio_item.technologies.build }
   end
   def create
-    @portfolio_item = Portfolio.new( params.require(:portfolio).permit(:title, :subtitle, :body)) #standalone terms like blog_params is method/var
+    @portfolio_item = Portfolio.new( params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [:name])) #standalone terms like blog_params is method/var
 
     respond_to do |format|
       if @portfolio_item.save
@@ -45,8 +41,7 @@ class PortfoliosController < ApplicationController
 
 
   def show
-     @portfolio_item = Portfolio.find(params[:id])
-
+    @portfolio_item = Portfolio.find(params[:id])
   end
 
   def destroy
