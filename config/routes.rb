@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'rails-items', to: 'portfolios#rails'
   
-  get 'portfolio/:id', to: 'portfolios#show', as:'portfolio_show'
+  get 'portfolio/:id', to: 'portfolios#show', as:'portfolio_show' #takes in the id parameter and maps to the show action
 
 
   #it shows if its portfolio/:id, route to portfolios#show
