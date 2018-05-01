@@ -1,9 +1,16 @@
+<!--This is the master layout file -->
+<!--If we had 30 pages, and if we would add 1 navigation item, we need to do it 30 different times
+but the presence of this file makes it very easy to customize -->
+
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PoetDashboard</title>
+    <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+    
+    <meta name="keywords" content="<%= @seo_keywords %>" />
+
+
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,14 +21,21 @@
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+    <div>
+      <div><%= link_to "Home", root_path %>
+      <div><%= link_to "About", about_me_path  %>
+      <div><%= link_to "Contact", contact_me_path %>
+      <div><%= link_to "Blogs", blogs_path %>
+      <div><%= link_to "Portfolios", portfolios_path %>
+
     <% if current_user.is_a?(User) %>
       <%= link_to "logout", destroy_user_session_path, method: :delete %> 
     <% else %>
-      <%= link_to "Register", new_user_registration_path %> 
-      <%= link_to "login", new_user_session_path %> 
+     <div> <%= link_to "Register", new_user_registration_path %> </div>
+     <div> <%= link_to "login", new_user_session_path %> </div>
     <% end %>
 
-    <%= yield %>
+    <%= yield %>  <!--yield gives a way to slide in other contents into the master layout file -->
 
     <% if session[:source] %>
       <p>Thanks for visiting me from, <%= session[:source] %></p>
