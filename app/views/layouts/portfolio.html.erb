@@ -24,13 +24,7 @@ but the presence of this file makes it very easy to customize -->
     
     <%= render 'shared/nav', location: 'top' %>
 
-    <% if current_user.is_a?(User) %>
-      <%= link_to "logout", destroy_user_session_path, method: :delete %> 
-    <% else %>
-     <div> <%= link_to "Register", new_user_registration_path %> </div>
-     <div> <%= link_to "login", new_user_session_path %> </div>
-    <% end %>
-
+    <%= login_helper %>
     <%= yield %>  <!--yield gives a way to slide in other contents into the master layout file -->
 
     <% if session[:source] %>
