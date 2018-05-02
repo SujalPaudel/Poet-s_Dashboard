@@ -32,7 +32,7 @@ but the presence of this file makes it very easy to customize -->
 
     <%= yield %>  <!--yield gives a way to slide in other contents into the master layout file -->
     
-    <%= render 'shared/nav' %>
+    <%= render 'shared/nav', location: 'bottom' %>
 
 
     <% if session[:source] %>
