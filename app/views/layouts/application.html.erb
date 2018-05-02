@@ -28,9 +28,7 @@ but the presence of this file makes it very easy to customize -->
 
     <%= yield %>  <!--yield gives a way to slide in other contents into the master layout file -->
 
-    <% if session[:source] %>
-      <p>Thanks for visiting me from, <%= session[:source] %></p>
-    <% end %>
+    <%= source_helper("application") %>
 
   </body>
 </html>

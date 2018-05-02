@@ -8,12 +8,24 @@ module ApplicationHelper
       (link_to "login", new_user_session_path)
     end
   end    
-end
+
 
 #the work done by the view helper and the partial is same, but we use helper method, when there is presence of alot of ruby code(ie logical statement) while use the partial methods for sharing of code, when there is alot of html code to be shared.
 
 # alot of ruby code : helper method
 # alot of html code : partial method
+
+
+  def source_helper(layout_name)
+    if session[:source]
+      greeting =  "Thanks for visiting me from, #{session[:source]}, and currently you are in #{layout_name}, layout"
+      content_tag(:p, greeting, class: "source_greeting") #we create class for the future use in css
+    end
+  end
+end
+
+#we use content_tag to access the html code inside of the ruby methods.
+#it makes your code cleaner in an overall manner
 
 
 
