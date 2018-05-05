@@ -60,6 +60,8 @@ gem 'devise', '~> 4.4', '>= 4.4.3'
 gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
+gem 'noobies_view_tool', git: 'https://github.com/SujalPaudel/noobies_view_tool'
+
 
 
 #source 'https://rubygems.org'

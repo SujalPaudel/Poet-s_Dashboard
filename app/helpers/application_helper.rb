@@ -22,6 +22,14 @@ module ApplicationHelper
       content_tag(:p, greeting, class: "source_greeting") #we create class for the future use in css
     end
   end
+ 
+
+  def owner
+    NoobiesViewTool::Renderer.copyright 'Samip Dhungel', 'All Rights Reserved'
+  end
+  def developer
+    NoobiesViewTool::Renderer.developer 'https://github.com/SujalPaudel', 'Sujal Paudel'
+  end 
 end
 
 #we use content_tag to access the html code inside of the ruby methods.
