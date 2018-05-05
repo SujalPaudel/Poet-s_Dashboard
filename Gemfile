@@ -61,6 +61,7 @@ gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
 
 gem 'noobies_view_tool', git: 'https://github.com/SujalPaudel/noobies_view_tool'
+gem 'petergate', '~> 1.8', '>= 1.8.1'
 
 
 
