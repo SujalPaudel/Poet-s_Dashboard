@@ -1,6 +1,10 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
-  layout "blog" #layout is a method, with blog as a argument also can do layout("blog")
+  layout "blog" 
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+
+
+  #layout is a method, with blog as a argument also can do layout("blog")
   #the method in rails is called as actions
   # GET /blogs
   # GET /blogs.json
