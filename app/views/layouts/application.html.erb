@@ -19,18 +19,25 @@ but the presence of this file makes it very easy to customize -->
   </head>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     
-    <%= render 'shared/nav', location: 'top' %>
+    <div class="site-wrapper">
 
-    <%= login_helper %>    
+      <div class="site-wrapper-inner">
 
-    <%= yield %>  <!--yield gives a way to slide in other contents into the master layout file -->
+        <div class="cover-container">
+    
+          <%= render 'shared/application_nav'%>
 
-    <%= source_helper("application") %>
+          <%= login_helper %>    
 
-    <p><%= owner %></p>
-    <p><%= developer %></p>
+          <%= yield %>  <!--yield gives a way to slide in other contents into the master layout file -->
+
+          <%= source_helper("application") %>
+
+          <p><%= owner %></p>
+          <p><%= developer %></p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
