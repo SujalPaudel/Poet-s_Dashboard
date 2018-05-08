@@ -28,14 +28,17 @@ but the presence of this file makes it very easy to customize -->
     
           <%= render 'shared/application_nav'%>
 
-          <%= login_helper %>    
+              
 
           <%= yield %>  <!--yield gives a way to slide in other contents into the master layout file -->
 
+          <%= render 'shared/application_footer' %>
+
           <%= source_helper("application") %>
 
-          <p><%= owner %></p>
-          <p><%= developer %></p>
+          
+
+        
         </div>
       </div>
     </div>
