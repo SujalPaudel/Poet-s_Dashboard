@@ -1,0 +1,10 @@
+<!--Start Of Blog Header -->
+<div class="blog-header">
+  <div class="container">
+    <h1 class="blog-title">My Blog</h1>
+    <p class="lead blog-description">Written with Passion And Love</p>
+    <p><%= link_to 'Write a New Blog', new_blog_path if logged_in?(:site_admin) %></p>
+  </div>
+</div>
+
+<!--End Of Blog Header -->

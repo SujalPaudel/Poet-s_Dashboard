@@ -11,7 +11,7 @@ class BlogsController < ApplicationController
 
   def index
     
-    @blogs = Blog.special_blogs
+    @blogs = Blog.page(params[:page]).per(5) #to limit 5 blogs per pages, fetching it from the database.
 
     @page_title = "My Personal Blogs"
 
