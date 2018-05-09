@@ -176,14 +176,37 @@ body {
 
 .card-block{
   color: black;
-  padding-left: 20px;
+  margin-right: 7px;
+  margin-left: 7px;
+  
 }
 .kkkkkiran{
   padding-left: 10px;
 }
+.email{
+  padding-right: 100%;
+}
+.pass{
+  padding-right: 81.5%;
+}
+.pass1{
+  padding-right: 71%;
+}
+.pass2{
+  padding-right: 77.54%;
+}
+
 .auth-links a {
   color: black;
 }
 .back{
   text-align: left;
+}
+.login-text{
+  text-align: right;
+}
+.login > .card {
+  width: 22rem;
+  margin: 0 auto;
+  float: none;
 }

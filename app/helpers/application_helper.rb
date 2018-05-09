@@ -1,5 +1,5 @@
 module ApplicationHelper
-  def login_helper(style)
+  def login_helper(style = '') #by default style is going to be set, but they are only empty strings.
     if current_user.is_a?(GuestUser) 
       (link_to "Register", new_user_registration_path, class: style).html_safe +
       (link_to "login", new_user_session_path, class: style )
