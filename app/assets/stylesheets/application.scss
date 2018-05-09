@@ -60,6 +60,12 @@ body {
 .inner {
   padding: 2rem;
 }
+.copyright{
+  font-size: 15px;
+  position: absolute;
+  bottom: 0px;
+  padding-left: 30%;
+}
 
 
 /*
@@ -161,4 +167,23 @@ body {
   .cover-container {
     width: 55rem;
   }
+}
+
+
+/*
+ * Custom Styles
+ */
+
+.card-block{
+  color: black;
+  padding-left: 20px;
+}
+.kkkkkiran{
+  padding-left: 10px;
+}
+.auth-links a {
+  color: black;
+}
+.back{
+  text-align: left;
 }
