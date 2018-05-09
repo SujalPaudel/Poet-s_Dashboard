@@ -1,5 +1,7 @@
-<h1>New Blog</h1>
+<div class = "col-sm-8 blog-main">
 
-<%= render 'form', blog: @blog %> <!--blog: @blog, ability to pass the data to the render -->
+  <h1>New Blog</h1>
 
-<%= link_to 'Back', blogs_path %>
+  <%= render 'form', blog: @blog %> <!--blog: @blog, ability to pass the data to the render -->
+  <%= link_to 'Back', blogs_path %>
+</div>
