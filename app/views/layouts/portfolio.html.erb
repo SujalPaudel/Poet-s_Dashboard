@@ -24,7 +24,7 @@
 
     <!--Start Of MastHead -->
 
-    <%= render 'shared/portfolio_masthead' %>
+    <%= render 'shared/portfolio_masthead' unless logged_in?(:site_admin) %>
   <!--End Of MastHead -->
 
     <%= yield %>  <!--yield gives a way to slide in other contents into the master layout file -->
@@ -39,7 +39,7 @@
     <%= source_helper("portfolio") %>
 
     
-    <%= render 'shared/portfolio_footer' %>
+    <%= render 'shared/portfolio_footer'  %>
     
 
   </body>
