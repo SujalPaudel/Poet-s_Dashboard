@@ -1,7 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
   layout "blog" 
-  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit]}, site_admin: :all
+  access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
 
   #layout is a method, with blog as a argument also can do layout("blog")
@@ -11,7 +11,7 @@ class BlogsController < ApplicationController
 
   def index
     
-    @blogs = Blog.special_blogs
+    @blogs = Blog.page(params[:page]).per(5) #to limit 5 blogs per pages, fetching it from the database.
 
     @page_title = "My Personal Blogs"
 

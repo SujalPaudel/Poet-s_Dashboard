@@ -1,10 +1,14 @@
-<h1>Hi, <%= current_user.first_name %></h1> 
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="inner cover">
+  <h1 class="cover-heading">Idling idols </h1>
+  <p class="lead">Idling idols is a poetry blog, but you might also come across other goodies 
+                  like cave paintings, my politically charged agendas, pictures of insects and 
+                  (hopefully) some video links. .</p>
+  <p class="lead">
+    <%= link_to "Start Reading", blogs_path, class: "btn btn-lg btn-secondary" %>
+  </p>
+</div>
 
-<h1>Blog Posts</h1>
-<%= @posts.inspect %>
 
-<h1>Skills</h1>
-<%= @skills.inspect %> 
+    
 
-<!-- current_user is a method provided by devise, that helps us to work with the database record of the logged in user --> 
+

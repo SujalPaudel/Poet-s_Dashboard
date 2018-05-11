@@ -1,25 +1,13 @@
-<p id="notice"><%= notice %></p>
+<div class="col-sm-8 blog-main">
 
-<h1>Blogs</h1>
+  <%=  paginate @blogs %>
+  <%= render @blogs %> 
+  <%=  paginate @blogs %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Date</th>
-      <th>Body</th>
-      <th colspan="4"></th>
-    </tr>
-  </thead>
+</div><!-- /.blog-main -->
 
-  <tbody>
-    <%= render @blogs %> <!-- Inbuilt for the rails to render using the @blogs instance variable, initiated in the blogs controller -->
-  </tbody>
-</table>
 
-<br>
 
-<%= link_to 'New Blog', new_blog_path if logged_in?(:site_admin) %>
 
 
 <!-- blogs ma present cha _blog.html.erb
