@@ -16,6 +16,14 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.new
     3.times { @portfolio_item.technologies.build }
   end
+
+  def sort
+    params[:order].each do |key, value|
+      Portfolio.find(value[:id]).update(position: value[:position]) #Portfolio.first.update(position: 1)
+    end
+
+    render nothing: true #donot go for the view, we are only talking to the database
+  end
   def create
     @portfolio_item = Portfolio.new(portfolio_params) #standalone terms like blog_params is method/var
 
