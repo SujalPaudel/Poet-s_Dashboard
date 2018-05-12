@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 
 
   #provide the same routes but change in the show
-  resources :portfolios, except:[:show]
+  resources :portfolios, except:[:show] do
+
+    put :sort, on: :collection #when you see sort in the routes I want you to do diifferent thing
+
+  end
 
   get 'angular-items', to: 'portfolios#angular' 
 
