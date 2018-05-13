@@ -3,8 +3,17 @@ class Portfolio < ApplicationRecord
   accepts_nested_attributes_for :technologies,
                                 reject_if: lambda { |attrs| attrs['name'].blank? } #data_validations
 
-  include Placeholder
-  validates_presence_of :title, :body, :main_image, :thumb_image
+  validates_presence_of :title, :body
+
+  #mount_uploader tells portfolio it needs to call carrierwave, it is special method provided by carrierwave
+  #Uploader is going to apply to the thumb_image
+  #it is going to use the PortfolioUploader
+
+
+
+  mount_uploader :thumb_image, PortfolioUploader #this is being explicit about the Uploader to be used
+  mount_uploader :main_image, PortfolioUploader
+  
 
   def self.angular #referencing the current version of portfolio, this particular portfolio item
     where(subtitle: 'Angular')
@@ -17,13 +26,7 @@ class Portfolio < ApplicationRecord
   def self.by_position
     order("position ASC")
   end
-
-  after_initialize :set_defaults
-
-  def set_defaults
-    self.main_image ||= Placeholder.image_generator(height: '600', width: '400')
-    self.thumb_image ||= Placeholder.image_generator(height: '350', width: '200')
-  end
+  
 end
 
 
