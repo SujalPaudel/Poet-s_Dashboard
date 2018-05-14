@@ -1,0 +1,6 @@
+<div class = "form-group nested-fields">   <!--Jquery written in cocoon needs to know where to go 
+                                                after the item is deleted.-->
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= link_to_remove_association 'Remove Technology', f %>
+</div>

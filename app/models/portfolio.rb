@@ -1,6 +1,7 @@
 class Portfolio < ApplicationRecord
   has_many :technologies
   accepts_nested_attributes_for :technologies,
+                                allow_destroy: true, #we want to give permission to our portfolio to  delete nested attribute.
                                 reject_if: lambda { |attrs| attrs['name'].blank? } #data_validations
 
   validates_presence_of :title, :body

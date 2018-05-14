@@ -13,8 +13,6 @@ class PortfoliosController < ApplicationController
     @portfolio_item_angular = Portfolio.angular
   end 
   def new 
-    @portfolio_item = Portfolio.new
-    3.times { @portfolio_item.technologies.build }
   end
 
   def sort
@@ -78,7 +76,7 @@ class PortfoliosController < ApplicationController
                                       :body, 
                                       :main_image,
                                       :thumb_image,
-                                      technologies_attributes: [:name])
+                                      technologies_attributes: [:id, :name, :_destroy]) #:_destroy,       specific to the attribute required by coccon
 
   end
 

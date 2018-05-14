@@ -2,8 +2,7 @@
   <div class = "row">
     <div class = "col-md-7">
       <!--undefined local variable or method `portfolio_item'-->
-      <%=  image_tag portfolio_image(@portfolio_item.main_image.url, 'main') %>
-     
+      <%=  video_tag portfolio_image(@portfolio_item.main_image.url, 'main'), controls: "controls" %>
     </div>
     <div class = "col-md-5">
 
@@ -20,10 +19,13 @@
       <p><%= t.name %></p>
       <% end %>
 
+      <% if logged_in?(:site_admin) %>
+        <div>
+          <%= link_to "Edit Content", edit_portfolio_path(@portfolio_item), class: 'btn btn-warning' %>
+        </div>
+      <% end %>
     </div>
-
   </div>
-
 </div>
 
 
