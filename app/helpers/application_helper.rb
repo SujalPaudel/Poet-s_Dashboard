@@ -77,6 +77,17 @@ module ApplicationHelper
   end
   #return active if the current page(rails method) matches whatever path we pass in
 
+  def alerts 
+    alert = (flash[:alert] || flash[:error] || flash[:notice]) #mini conditionals
+
+    if alert
+      alert_generator alert
+    end
+  end
+
+  def alert_generator msg
+    js add_gritter(msg, title: "Samip Dhungel Portfolio", sticky: false) 
+  end
 end
 
 
