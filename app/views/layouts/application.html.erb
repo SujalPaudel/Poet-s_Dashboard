@@ -36,6 +36,7 @@ but the presence of this file makes it very easy to customize -->
           <%= yield %>  <!--yield gives a way to slide in other contents into the master layout file -->
 
           <%= render 'shared/copyright_footer' %>
+          <%= render 'shared/alerts' %>
 
           <%= source_helper("application") %>
           <%= video_tag(

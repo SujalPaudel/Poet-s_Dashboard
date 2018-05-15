@@ -13,6 +13,7 @@ class PortfoliosController < ApplicationController
     @portfolio_item_angular = Portfolio.angular
   end 
   def new 
+    @portfolio_item = Portfolio.new
   end
 
   def sort
