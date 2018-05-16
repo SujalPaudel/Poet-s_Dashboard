@@ -18,6 +18,7 @@ require "sprockets/railtie"
 Bundler.require(*Rails.groups)
 
 module PoetDashboard
-  class Application < Rails::Application
+  class Application < Rails::Application #make this available to rest of the application
+    config.eager_load_paths << "#{Rails.root}/lib" #rails root, I want u to pass in /lib path 
   end
 end
