@@ -56,7 +56,7 @@ body {
   vertical-align: top;
 }
 .cover-container {
-  margin-right: auto;
+  margin-right: 15%;
   margin-left: auto;
 }
 
@@ -237,4 +237,18 @@ body {
   background: image-url('fixer.png');
   background-size: cover;
 
+}
+
+.selected_tweets
+{
+  color: black;
+  margin: 20px;
+}
+
+.selected_tweets a {
+  color: blue;
+}
+
+.selected_tweets > .card{
+  padding: 20px;
 }

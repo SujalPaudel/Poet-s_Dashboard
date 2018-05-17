@@ -18,11 +18,12 @@ module PagesHelper
       )
     }ix
 
-    tweet.gsub(regex) do |url|
+    tweet.gsub(regex) do |url| # gsub is ruby method global_substitution
       "<a href = #{url} target = '_blank'>#{url}</a>"
     end.html_safe
   end
 end
+
 
 
 
