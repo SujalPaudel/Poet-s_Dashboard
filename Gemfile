@@ -72,6 +72,7 @@ gem 'dotenv-rails', '~> 2.1', '>= 2.1.2'
 gem 'cocoon', '~> 1.2', '>= 1.2.11'
 gem 'gritter', '~> 1.2'
 gem 'twitter', '~> 6.2'  #A Ruby interface to the Twitter API.
+gem 'redis', '~> 4.0', '>= 4.0.1'
 
 #source 'https://rubygems.org'
 #gem '[nameofgem]'

@@ -15,6 +15,9 @@ class User < ApplicationRecord
 
   validates_presence_of :name #guarantees the presence of name, in the database
 
+  has_many :comments, dependent: :destroy #deletes the comment, related to the user when we delete a user account, we dont want an orphan data(i.e data without a parent)
+
+
   def first_name
     self.name.split.first
   end
