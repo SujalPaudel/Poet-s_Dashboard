@@ -20,6 +20,9 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blog = Blog.includes(:comments).friendly.find(params[:id]) #it allows us to include not only blog but also comment associated with it
+    @comment = Comment.new  #now that we have the blog found, we also need to render the comments out
+
     @page_title = @blog.title
     @seo_keywords = @blog.body
   end
