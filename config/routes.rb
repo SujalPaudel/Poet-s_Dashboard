@@ -33,6 +33,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-
-
 end
+
+
+#WebSocket is a computer communications protocol, providing full-duplex communication channels over a single TCP connection.
