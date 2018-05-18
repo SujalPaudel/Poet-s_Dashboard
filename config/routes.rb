@@ -28,5 +28,11 @@ Rails.application.routes.draw do
       get :toggle_status
     end
   end
+
+  mount ActionCable.server => '/cable' #allows to create websockets connection  
+
   root to: 'pages#home'
+
+
+
 end
