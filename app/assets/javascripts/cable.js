@@ -11,3 +11,6 @@
   App.cable = ActionCable.createConsumer();
 
 }).call(this);
+
+//immediately invoked function.
+//when this file loads it is going to start all of this, it creates instance of ActionCable.
