@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_sidebar_topics, except:[:update, :create, :destroy, :toggle_status] #designed only for GET request.
+
   layout "blog" 
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
@@ -100,6 +102,13 @@ class BlogsController < ApplicationController
     def blog_params #makes availabe to create and update the value supplied from new and edit
       params.require(:blog).permit(:title, :body, :topic_id)
     end
+
+    def set_sidebar_topics
+      @side_bar_topics = Topic.with_blogs
+    end
+
+
+
 end
 
 
