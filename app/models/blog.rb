@@ -3,7 +3,7 @@ class Blog < ApplicationRecord
   extend FriendlyId 
   friendly_id :title, use: :slugged
 
-  validates_presence_of :title, :body #doesnt allow to create a blog post unless we have.
+  validates_presence_of :title, :body, :topic_id #doesnt allow to create a blog post unless we have.
 
   belongs_to :topic
 
