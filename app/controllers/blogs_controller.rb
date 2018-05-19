@@ -86,9 +86,6 @@ class BlogsController < ApplicationController
     elsif @blog.published?
       @blog.draft!
     end
-      
-
-    #byebug(dont put this permanently, it will stop the sys from running) #using the gem of byebug
     redirect_to blogs_url
   end
 
@@ -100,7 +97,7 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params #makes availabe to create and update the value supplied from new and edit
-      params.require(:blog).permit(:title, :body, :topic_id)
+      params.require(:blog).permit(:title, :body, :topic_id, :status)
     end
 
     def set_sidebar_topics
