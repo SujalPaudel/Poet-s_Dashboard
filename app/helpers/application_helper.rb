@@ -14,10 +14,10 @@ module ApplicationHelper
 # alot of html code : partial method
 
 
-  def source_helper(layout_name)
+  def source_helper(styles)
     if session[:source]
-      greeting =  "Thanks for visiting me from, #{session[:source]}, and currently you are in #{layout_name}, layout"
-      content_tag(:p, greeting, class: "source_greeting") #we create class for the future use in css
+      greeting =  "Thanks for visiting me from, #{session[:source]}, please feel free to  #{ link_to 'Contact Me', contact_me_path }, if you would like to work together."
+      content_tag(:div, greeting.html_safe, class: styles) 
     end
   end
  
