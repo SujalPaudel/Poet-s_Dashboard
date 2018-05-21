@@ -207,3 +207,12 @@ padding-left: 210px;
 .blog-sidebar-source{
   margin-top: 20px;
 }
+
+
+.navbar-toggler:not(:disabled):not(.disabled) {
+    cursor: pointer;  
+    margin-left: 86%;
+}
+.blog-nav{
+  margin-bottom: 35px;
+}

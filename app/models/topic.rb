@@ -5,8 +5,7 @@ class Topic < ApplicationRecord
 
   def self.with_blogs #return only those topics with blogs
     includes(:blogs).where.not(blogs: {id: nil})
-    
-
+  
   end
 
 
