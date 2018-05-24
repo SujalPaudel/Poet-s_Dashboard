@@ -1,5 +1,7 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy, :toggle_status]
+  before_action :set_sidebar_topics, except:[:update, :create, :destroy, :toggle_status] #designed only for GET request.
+
   layout "blog" 
   access all: [:show, :index], user: {except: [:destroy, :new, :create, :update, :edit, :toggle_status]}, site_admin: :all
 
@@ -11,8 +13,11 @@ class BlogsController < ApplicationController
 
   def index
     
-    @blogs = Blog.page(params[:page]).per(5) #to limit 5 blogs per pages, fetching it from the database.
-
+    if logged_in?(:site_admin)
+      @blogs = Blog.recent.page(params[:page]).per(5) #to limit 5 blogs per pages, fetching it from the database.
+    else
+      @blogs = Blog.published.recent.page(params[:page]).per(5)
+    end
     @page_title = "My Personal Blogs"
 
   end
@@ -20,11 +25,15 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id]) #it allows us to include not only blog but also comment associated with it
-    @comment = Comment.new  #now that we have the blog found, we also need to render the comments out
+    if logged_in?(:site_admin) || @blog.published?
+      @blog = Blog.includes(:comments).friendly.find(params[:id]) #it allows us to include not only blog but also comment associated with it
+      @comment = Comment.new  #now that we have the blog found, we also need to render the comments out
 
-    @page_title = @blog.title
-    @seo_keywords = @blog.body
+      @page_title = @blog.title
+      @seo_keywords = @blog.body
+    else
+      redirect_to blogs_path, notice: 'You are not authorized to access this page'
+    end
   end
 
   # GET /blogs/new
@@ -43,7 +52,7 @@ class BlogsController < ApplicationController
 
     respond_to do |format|
       if @blog.save
-        format.html { redirect_to @blog, notice: 'Your Blog is on the web' }
+        format.html { redirect_to @blog, notice: 'Your Blog is on the web' } #If the request wants an HTML page
       else
         format.html { render :new } 
       end
@@ -77,9 +86,6 @@ class BlogsController < ApplicationController
     elsif @blog.published?
       @blog.draft!
     end
-      
-
-    #byebug(dont put this permanently, it will stop the sys from running) #using the gem of byebug
     redirect_to blogs_url
   end
 
@@ -91,8 +97,15 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params #makes availabe to create and update the value supplied from new and edit
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :topic_id, :status)
     end
+
+    def set_sidebar_topics
+      @side_bar_topics = Topic.with_blogs
+    end
+
+
+
 end
 
 
