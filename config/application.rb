@@ -20,5 +20,6 @@ Bundler.require(*Rails.groups)
 module PoetDashboard
   class Application < Rails::Application #make this available to rest of the application
     config.eager_load_paths << "#{Rails.root}/lib" #rails root, I want u to pass in /lib path 
+    config.secret_key_base = ENV["SECRET_KEY_BASE"]
   end
 end
