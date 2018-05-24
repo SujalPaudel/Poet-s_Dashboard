@@ -8,7 +8,11 @@
     <div class = "row">
       <div class = "col-md-4">
         <%= image_tag"profile_img.jpg", width: 300, alt: "Proflie Image", class: 'profile-img' %> <!--this is a view helper -->
+      
+ 
       </div>
+
+
 
       <div class = "col-md-8">
         <p>Sometimes I call myself a spoken word poet, other times I just read,recite, 
@@ -49,6 +53,20 @@
 
           Education
         </button>
+
+         <button
+          class = "btn btn-primary"
+          type = "button"
+          data-toggle = "collapse"
+          data-target = "#skills"
+          aria-expanded = "false" 
+          aria-controller = "ducation"
+        >
+
+          Skills
+        </button>
+
+
       </p>
 
       <p>
@@ -80,40 +98,56 @@
       </p> 
 
 
+      <p>
+        <div class = "collapse" id = "skills">
+          <div class = "card card-block">
+            <div class = "skills">
+              <% @skills.each do |skill| %>
+                <h4> <%= skill.title %> </h4>
+                  <div class = "progress" >
+                    <div 
+                      class = "progress-bar progress-bar-striped bg-warning"
+                      role = "pogressbar"
+                      aria-valuenow = "<%= skill.percent_utilized %>"
+                      aria-valuemax = "100"
+                      style = "width: <%= skill.percent_utilized %>% "
+                    >
 
+                    </div>
+                  </div>
+              <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      </div>
+            </div>
+          </div>
+        </div>
+      </p> 
     </div>
   </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

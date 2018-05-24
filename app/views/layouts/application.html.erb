@@ -7,6 +7,10 @@ but the presence of this file makes it very easy to customize -->
   <head>
     <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
+
+    <link href="https://fonts.googleapis.com/css?family=Lato|Roboto+Slab" rel="stylesheet"> 
+
+
     
     <meta name="keywords" content="<%= @seo_keywords %>" />
 
@@ -39,14 +43,7 @@ but the presence of this file makes it very easy to customize -->
       
           <%= alert_generator notice%>
       
-          <%= video_tag(
-            'HardDrivePhotojpeg.mp4',
-            id: 'background',
-            autoplay: true,
-            loop: true,
-            muted: true,
-          )
-          %>          
+            
 
         </div>
       </div>
